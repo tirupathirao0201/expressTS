@@ -3,9 +3,10 @@ import {entities} from '../entities'
 
 export const dataSource = new DataSource({
   type: 'postgres',
-  password: 'Thiru@2726',
+  username:'tirupathi_rao',
+  password: 'jAvG7w5qXT6WveqsEhmG6fUsLCQiDPAm',
   host: 'localhost',
-  database: 'expressTS',
+  database: 'express_ts',
   port: 5432,
   synchronize: true,
   entities: [...entities],
