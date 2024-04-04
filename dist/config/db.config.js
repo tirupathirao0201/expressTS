@@ -7,10 +7,11 @@ exports.dataSource = new typeorm_1.DataSource({
     type: 'postgres',
     username: 'tirupathi_rao',
     password: 'jAvG7w5qXT6WveqsEhmG6fUsLCQiDPAm',
-    host: 'postgres://@dpg-co7ao4md3nmc73e7bo4g-a.oregon-postgres.render.com',
+    url: 'postgres://tirupathi_rao:jAvG7w5qXT6WveqsEhmG6fUsLCQiDPAm@dpg-co7ao4md3nmc73e7bo4g-a.oregon-postgres.render.com/express_ts',
     database: 'express_ts',
     port: 5432,
     synchronize: true,
     entities: [...entities_1.entities],
     entityPrefix: 'expressTS_',
+    ssl: true
 });
