@@ -21,6 +21,9 @@ dataSource
 app.use(bodyParser.json())
 
 // routes
+app.get('/',(req,res)=>{
+  res.status(200).send("Server running successfully")
+})
 app.use('/users', userRouter)
 
 app.listen(PORT, () => {
