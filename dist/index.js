@@ -10,7 +10,8 @@ const user_route_1 = __importDefault(require("./routes/user.route"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const dotenv_1 = __importDefault(require("dotenv"));
 // environment
-dotenv_1.default.config({ path: `.env.${process.env.NODE_ENV}` });
+const result = dotenv_1.default.config({ path: `.env.${process.env.NODE_ENV}` });
+console.log("env vv", result.parsed);
 console.log(`running in ${process.env.NODE_ENV} environment`);
 const app = (0, express_1.default)();
 const PORT = process.env.PORT;

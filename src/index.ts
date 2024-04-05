@@ -6,7 +6,8 @@ import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 
 // environment
-dotenv.config({path:`.env.${process.env.NODE_ENV}`})
+const result = dotenv.config({path:`.env.${process.env.NODE_ENV}`})
+console.log("env vv", result.parsed)
 console.log(`running in ${process.env.NODE_ENV} environment`)
 const app = express()
 const PORT = process.env.PORT
