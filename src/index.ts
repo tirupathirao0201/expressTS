@@ -11,7 +11,7 @@ console.log("env vv", result.parsed)
 console.log(`running in ${process.env.NODE_ENV} environment`)
 const app = express()
 const PORT = process.env.PORT
-
+console.log("entered")
 // Database initialization
 dataSource
   .initialize()

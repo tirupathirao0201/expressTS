@@ -9,6 +9,7 @@ export async function getUsers(_: Request, res: Response) {
     const users = await queryRunner.manager.find(User)
     res.status(200).json({status: 'success', data: users})
   } catch (error) {
+    console.log("errro",error)
     res.status(404).json({status: 'failure', errorMsg: 'Unable to fetch users'})
   } finally {
     await queryRunner.release()
@@ -22,6 +23,7 @@ export async function getUserById(req: Request<{id: string}>, res: Response) {
     const user = await queryRunner.manager.findOneByOrFail(User, {userId: req.params.id})
     res.status(200).json({status: 'success', data: user})
   } catch (error) {
+    console.log("errro",error)
     res.status(404).json({status: 'failure', errorMsg: `User not found with id ${req.params.id}`})
   } finally {
     await queryRunner.release()

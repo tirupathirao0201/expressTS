@@ -6,10 +6,10 @@ export const dataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   host:process.env.DB_HOST,
-  port: process.env.DB_PORT as unknown as number,
+  port: Number(process.env.DB_PORT),
   database:process.env.DB_DATABASE_NAME,
-  synchronize: process.env.DB_SYNCHRONIZE as unknown as boolean,
+  synchronize: Boolean(process.env.DB_SYNCHRONIZE),
   entities: [...entities],
-  entityPrefix: process.env.DB_ENTITY_PREFIX,
-  ssl: process.env.DB_SSL as unknown as boolean
+  ssl: Boolean(process.env.DB_SSL),
+  logging:true
 })

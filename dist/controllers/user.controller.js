@@ -25,6 +25,7 @@ function getUsers(_, res) {
             res.status(200).json({ status: 'success', data: users });
         }
         catch (error) {
+            console.log("errro", error);
             res.status(404).json({ status: 'failure', errorMsg: 'Unable to fetch users' });
         }
         finally {
@@ -42,6 +43,7 @@ function getUserById(req, res) {
             res.status(200).json({ status: 'success', data: user });
         }
         catch (error) {
+            console.log("errro", error);
             res.status(404).json({ status: 'failure', errorMsg: `User not found with id ${req.params.id}` });
         }
         finally {
