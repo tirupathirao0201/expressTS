@@ -3,9 +3,13 @@ import {dataSource} from './config/db.config'
 import 'reflect-metadata'
 import userRouter from './routes/user.route'
 import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
 
+// environment
+dotenv.config({path:`.env.${process.env.NODE_ENV}`})
+console.log(`running in ${process.env.NODE_ENV} environment`)
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT
 
 // Database initialization
 dataSource
@@ -21,11 +25,11 @@ dataSource
 app.use(bodyParser.json())
 
 // routes
-app.get('/',(req,res)=>{
+app.get('/',(_,res)=>{
   res.status(200).send("Server running successfully")
 })
 app.use('/users', userRouter)
 
 app.listen(PORT, () => {
-  console.log(`running on ${PORT} port`)
+  console.log(`server running on ${PORT} port`)
 })

@@ -8,8 +8,12 @@ const db_config_1 = require("./config/db.config");
 require("reflect-metadata");
 const user_route_1 = __importDefault(require("./routes/user.route"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const dotenv_1 = __importDefault(require("dotenv"));
+// environment
+dotenv_1.default.config({ path: `.env.${process.env.NODE_ENV}` });
+console.log(`running in ${process.env.NODE_ENV} environment`);
 const app = (0, express_1.default)();
-const PORT = 3000;
+const PORT = process.env.PORT;
 // Database initialization
 db_config_1.dataSource
     .initialize()
@@ -22,10 +26,10 @@ db_config_1.dataSource
 // middlewares
 app.use(body_parser_1.default.json());
 // routes
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     res.status(200).send("Server running successfully");
 });
 app.use('/users', user_route_1.default);
 app.listen(PORT, () => {
-    console.log(`running on ${PORT} port`);
+    console.log(`server running on ${PORT} port`);
 });
